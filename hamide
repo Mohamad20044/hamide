@@ -1,0 +1,85 @@
+eigenlayer 
+
+
+
+
+sudo apt update
+
+sudo apt upgrade
+
+wget https://dl.google.com/go/go1.13.5.linux-a64.tar.gz
+
+cd /usr/local/
+
+echo $PATH
+
+sudo nano $HOME/.profile
+
+cat $HOME/.profile
+
+apt install golang-go
+
+go version
+
+------------------------------------------------------------------
+install docker
+
+sudo apt-get update
+sudo apt-get install ca-certificates curl gnupg
+sudo install -m 0755 -d /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+
+
+  "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \
+  $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | \
+  sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt-get update
+
+
+ sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
+
+sudo groupadd docker
+newgrp docker
+
+docker run hello-world
+
+-------------------------------------------------------------------
+eigenlayer install
+
+
+cd ~
+
+curl -sSfL https://raw.githubusercontent.com/layr-labs/eigenlayer-cli/master/scripts/install.sh | sh -s
+export PATH=$PATH:~/bin-key-type bls gemgym
+
+
+nano operator.yaml
+
+0xD11d60b669Ecf7bE10329726043B3ac07B380C22
+7989C7aC91b19
+
+eigenlayer operator register operator.yaml
+eigenlayer operator status operator.yaml
+
+cd ~
+
+git clone https://github.com/Layr-Labs/eigenda-operator-setup.git
+
+cd eigenda-operator-setup
+
+nano .env
+/eigenda/logs
+mkdir -p $HOME/.eigenlayer/eigenda/db
+
+./run.sh opt-in
+
+docker compose up -d
+
+docker compose logs -f
+
+
+
+
+
+
